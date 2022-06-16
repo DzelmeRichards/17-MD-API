@@ -1,5 +1,5 @@
 import axios from 'axios';
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import Button from '../../Components/Button/Button';
 import Loader from '../../Components/Loader/Loader';
@@ -41,7 +41,8 @@ const LocationPage = () => {
   }, [currentPage]);
 
   return (
-    <div>
+    <div className="loaction__container">
+      {loading && (<Loader />)}
       {location && (
         <div>
           <p>
@@ -85,7 +86,6 @@ const LocationPage = () => {
           </div>
         </div>
       )}
-      {loading && (<Loader />)}
     </div>
   );
 };

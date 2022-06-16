@@ -1,0 +1,18 @@
+.button {
+  border: none;
+  padding: 0px 7px;
+  border-radius: 3px;
+  background-color: #c8d7c0;
+  border-bottom: 1px solid #49562A;
+  align-self: flex-end;
+  color: #49562A;
+
+  &:hover {
+    opacity: 0.7;
+  }
+
+  &:active {
+    background-color: #49562A;
+    color: #E1E6C6;
+  }
+}

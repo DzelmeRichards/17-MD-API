@@ -1,10 +1,28 @@
 .characters__card {
-  border: 1px solid black;
+  background-color: #e6ead4;
   padding: 5px;
   display: flex;
   flex-direction: column;
-  border-radius: 10px;
+  border-radius: 5px;
+  margin-top: 30px;
+  justify-content: space-between;
+  border-bottom: 1px solid #49562A;
+}
+
+.characters__img {
+  border-radius: 5px;
+}
+
+.characters__info-container {
   margin-top: 15px;
+  display: flex;
+  flex-direction: column;
+  padding-left: 20px;
+}
+
+.characters__title {
+  color: #49562A;
+  font-weight: 400;
 }
 
 .character__status--alive {
@@ -22,5 +40,11 @@
 .characters__button-container {
   display: flex;
   gap: 30px;
+  justify-content: center;
+}
+
+.characters__read-more-btn-container {
+  margin-top: 15px;
+  display: flex;
   justify-content: center;
 }

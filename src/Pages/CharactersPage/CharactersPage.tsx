@@ -1,5 +1,4 @@
-/* eslint-disable no-console */
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { Character } from '../../Models/CharacterModel';
@@ -10,22 +9,15 @@ const CharactersPage = () => {
   const [characters, setCharacters] = useState<Character[]>();
   const [errorMessage, setErrorMessage] = useState<String>();
   const [statusFilter, setStatusFilter] = useState<String>('all');
-  const [pageCount, setPageCount] = useState<Number>(1);
   const navigate = useNavigate();
 
   useEffect(() => {
 
   }, [statusFilter]);
 
-  // const getCharacters = () => {
-  //   axios.get('https://rickandmortyapi.com/api/character')
-  //     .then((response: AxiosResponse<Character[]>) => {
-  //       setCharacters(response.data.results);
-  //     }).then().catch().finally(); optional kabina klat ko vajag
-  // };
-
   const getCharacters = async () => {
     const currentFilter = statusFilter === 'all' ? '' : `?status=${statusFilter}`;
+    setErrorMessage('');
 
     try {
       const response = await axios.get(`https://rickandmortyapi.com/api/character/${currentFilter}`);
@@ -38,24 +30,22 @@ const CharactersPage = () => {
       } else {
         setErrorMessage('Not Axios Error');
       }
-    } finally {
-      console.log('BEIGAS');
     }
   };
 
   useEffect(() => {
-    getCharacters().then();
+    getCharacters();
   }, []);
 
   useEffect(() => {
-    getCharacters().then();
+    getCharacters();
   }, [statusFilter]);
 
   return (
     <div className="characters__container container-fluid">
       <div className="row center-xs">
         <div className="col-xs-6">
-          <h1>Characters Page</h1>
+          <h1 className="characters__title">Characters Page</h1>
           <div className="characters__button-container">
             <Button onClick={() => setStatusFilter('')} text="All" />
             <Button onClick={() => setStatusFilter('Alive')} text="Alive" />
@@ -64,64 +54,64 @@ const CharactersPage = () => {
           </div>
         </div>
       </div>
-      <div className="row">
-
+      <div className="row around-xs">
         {
         characters && characters.map(({
           id, name, status, species, gender, image, created,
         }) => (
-          <div key={id} className="col-xs-2">
+          <div key={id} className="col-xs-3">
             <div className="characters__card">
-              <img src={image} alt="not-found" />
-              <span>
-                ID:
-                {' '}
-                {id}
-              </span>
-              <span>
-                Name:
-                {' '}
-                {name}
-              </span>
-              {status === 'Alive' && (
-              <span className="character__status--alive">
-                Status:
-                {' '}
-                {status}
-              </span>
-              )}
-              {status === 'Dead' && (
-              <span className="character__status--dead">
-                Status:
-                {' '}
-                {status}
-              </span>
-              )}
-              {status === 'unknown' && (
-              <span className="character__status--unknown">
-                Status:
-                {' '}
-                {status}
-              </span>
-              )}
-              <span>
-                Species:
-                {' '}
-                {species}
-              </span>
-              <span>
-                Gender:
-                {' '}
-                {gender}
-              </span>
-
-              <Button onClick={() => navigate(`/characters/${id}`)} text="Read More" />
-
+              <img className="characters__img" src={image} alt="not-found" />
+              <div className="characters__info-container">
+                <span>
+                  ID:
+                  {' '}
+                  {id}
+                </span>
+                <span>
+                  Name:
+                  {' '}
+                  {name}
+                </span>
+                {status === 'Alive' && (
+                <span className="character__status--alive">
+                  Status:
+                  {' '}
+                  {status}
+                </span>
+                )}
+                {status === 'Dead' && (
+                <span className="character__status--dead">
+                  Status:
+                  {' '}
+                  {status}
+                </span>
+                )}
+                {status === 'unknown' && (
+                <span className="character__status--unknown">
+                  Status:
+                  {' '}
+                  {status}
+                </span>
+                )}
+                <span>
+                  Species:
+                  {' '}
+                  {species}
+                </span>
+                <span>
+                  Gender:
+                  {' '}
+                  {gender}
+                </span>
+              </div>
+              <div className="characters__read-more-btn-container">
+                <Button onClick={() => navigate(`/characters/${id}`)} text="Read More" />
+              </div>
             </div>
           </div>
         ))
           }
-
       </div>
       {errorMessage && (<span>{errorMessage}</span>)}
     </div>

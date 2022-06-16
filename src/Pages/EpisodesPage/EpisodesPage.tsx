@@ -1,7 +1,6 @@
-/* eslint-disable no-console */
 /* eslint-disable camelcase */
 import axios from 'axios';
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Button from '../../Components/Button/Button';
 import { Episode } from '../../Models/EpisodeModel';
@@ -20,6 +19,7 @@ const EpisodesPage = () => {
     try {
       const response = await axios.get(`https://rickandmortyapi.com/api/episode${currentFilter}`);
       setEpisodes(response.data.results);
+      setErrorMessage('');
     } catch (error) {
       if (axios.isAxiosError(error)) {
         const message = error.response?.status === 404 ? 'Nothing to show' : error.message;
@@ -27,8 +27,6 @@ const EpisodesPage = () => {
       } else {
         setErrorMessage('Not Axios Error');
       }
-    } finally {
-      console.log('BEIGAS');
     }
   };
 
@@ -44,10 +42,8 @@ const EpisodesPage = () => {
     <div className="episodes__container container-fluid">
       <div className="row center-xs">
         <div className="col-xs-6">
-
           <div
             className="episodes__form"
-
           >
             <input
               className="episodes__input"
@@ -58,10 +54,8 @@ const EpisodesPage = () => {
             <Button
               text="Search"
               onClick={() => setSearch(inputValue)}
-
             />
           </div>
-
         </div>
       </div>
       <div className="row">
@@ -95,7 +89,9 @@ const EpisodesPage = () => {
           </div>
         ))}
       </div>
-      {errorMessage && (<span>{errorMessage}</span>)}
+      <div className="episodes__error-msg-container">
+        {errorMessage && (<span>{errorMessage}</span>)}
+      </div>
     </div>
   );
 };

@@ -1,8 +1,6 @@
-import React from 'react';
 import {
   BrowserRouter as Router,
   Navigate,
-  NavLink,
   Route,
   Routes,
 } from 'react-router-dom';

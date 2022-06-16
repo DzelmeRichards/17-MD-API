@@ -3,12 +3,15 @@
   flex-direction: row;
   gap: 30px;
   justify-content: center;
+  align-items: center;
   margin-top: 30px;
 }
 
 .episodes__input {
-  padding: 5px 10px;
-  border-radius: 10px;
+  border: none;
+  padding-left: 10px;
+  border-radius: 3px;
+  background-color: #eff1e3;
 }
 
 .episodes__card {
@@ -16,7 +19,12 @@
   flex-direction: column;
   gap: 5px;
   margin-top: 20px;
-  border: 1px solid black;
+  border: 1px solid #49562A;
   padding: 10px;
-  border-radius: 10px;
+  border-radius: 3px;
+}
+
+.episodes__error-msg-container {
+  display: flex;
+  justify-content: center;
 }

@@ -1,9 +1,10 @@
 .locations__card {
   display: flex;
   flex-direction: column;
-  gap: 5px;
+  justify-content: space-between;
   margin-top: 20px;
-  border: 1px solid black;
+  border: 1px solid #49562A;
   padding: 10px;
   border-radius: 10px;
+  min-height: 180px;
 }

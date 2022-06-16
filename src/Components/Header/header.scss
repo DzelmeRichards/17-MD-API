@@ -1,14 +1,15 @@
 .header__navigation {
   display: flex;
+  justify-content: center;
   gap: 30px;
   padding: 10px;
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid #49562A;
   font-size: 30px;
 }
 
 .header__link {
   text-decoration: none;
-  color: black;
+  color: #AFC073;
   cursor: pointer;
 
   &:hover {
@@ -17,5 +18,5 @@
 }
 
 .header__link--active {
-  color: red;
+  color: #49562A;
 }

@@ -1,5 +1,5 @@
 import axios from 'axios';
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import Button from '../../Components/Button/Button';
 import Loader from '../../Components/Loader/Loader';
@@ -41,15 +41,30 @@ const EpisodePage = () => {
   }, [currentPage]);
 
   return (
-    <div>
+    <div className="episode__container">
+      {loading && <Loader />}
       {episode && (
         <div>
-
-          <span>
+          <p>
+            ID:
+            {' '}
+            {id}
+          </p>
+          <p>
             Name:
             {' '}
             {episode.name}
-          </span>
+          </p>
+          <p>
+            Air date:
+            {' '}
+            {episode.air_date}
+          </p>
+          <p>
+            Episode:
+            {' '}
+            {episode.episode}
+          </p>
           <div className="episode__prev-next-btn-container">
             {currentPage > 1 && (
             <Button
@@ -71,9 +86,7 @@ const EpisodePage = () => {
           </div>
         </div>
       )}
-      {loading && <Loader />}
     </div>
-
   );
 };
 

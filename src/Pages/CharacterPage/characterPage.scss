@@ -1,6 +1,29 @@
+.character__container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 60px;
+}
+
+.character__card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.character__img {
+  border-radius: 5px;
+}
+
 .character__prev-next-btn-container {
   display: flex;
   flex-direction: row;
   gap: 20px;
+}
+
+.character__loader-container {
+  display: flex;
+  justify-content: center;
 
 }

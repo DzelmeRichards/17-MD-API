@@ -1,6 +1,5 @@
-/* eslint-disable no-console */
 import axios from 'axios';
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './locationsPage.scss';
 import { Location } from '../../Models/LocationModel';
@@ -22,8 +21,6 @@ const LocationsPage = () => {
       } else {
         setErrorMessage('Not Axios Error');
       }
-    } finally {
-      console.log('BEIGAS');
     }
   };
 

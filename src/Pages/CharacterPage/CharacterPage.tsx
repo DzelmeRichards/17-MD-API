@@ -1,5 +1,5 @@
 import axios from 'axios';
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import Button from '../../Components/Button/Button';
 import Loader from '../../Components/Loader/Loader';
@@ -41,37 +41,49 @@ const CharacterPage = () => {
   }, [currentPage]);
 
   return (
-    <div>
+    <div className="character__container">
+      <div className="character__loader-container">
+        {loading && <Loader />}
+      </div>
       {character && (
-        <div>
-          <img src={character.image} alt="not found" />
-          <span>
-            Name:
-            {' '}
-            {character.name}
-          </span>
-          <div className="character__prev-next-btn-container">
-            {currentPage > 1 && (
-            <Button
-              text="<"
-              onClick={() => {
-                setCurrentPage(currentPage - 1);
-              }}
-            />
-            )}
-            {pageInfo && currentPage < pageInfo?.count && (
-            <Button
-              text=">"
-              onClick={() => {
-                setCurrentPage(currentPage + 1);
-              }}
-            />
-            )}
-
-          </div>
+      <div className="character__card">
+        <img className="character__img" src={character.image} alt="not found" />
+        <span>
+          Name:
+          {' '}
+          {character.name}
+        </span>
+        <span>
+          Species:
+          {' '}
+          {character.species}
+        </span>
+        <span>
+          Gender:
+          {' '}
+          {character.gender}
+        </span>
+        <div className="character__prev-next-btn-container">
+          {currentPage > 1 && (
+          <Button
+            text="<"
+            onClick={() => {
+              setCurrentPage(currentPage - 1);
+            }}
+          />
+          )}
+          {pageInfo && currentPage < pageInfo?.count && (
+          <Button
+            text=">"
+            onClick={() => {
+              setCurrentPage(currentPage + 1);
+            }}
+          />
+          )}
         </div>
+      </div>
       )}
-      {loading && <Loader />}
+
     </div>
   );
 };
