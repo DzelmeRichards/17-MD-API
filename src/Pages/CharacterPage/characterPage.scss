@@ -1,25 +1,25 @@
 .character__container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
   margin-top: 60px;
 }
 
 .character__card {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  background-color: #e6ead4;
+  border-bottom: 1px solid #49562A;
+  border-radius: 3px;
   gap: 10px;
+  padding: 20px;
 }
 
 .character__img {
-  border-radius: 5px;
+  border-radius: 3px;
 }
 
 .character__prev-next-btn-container {
+  width: 100%;
   display: flex;
-  flex-direction: row;
-  gap: 20px;
+  justify-content: space-between;
 }
 
 .character__loader-container {

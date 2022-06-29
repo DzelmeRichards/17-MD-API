@@ -1,3 +1,7 @@
+.characters__container {
+  margin-bottom: 30px;
+}
+
 .characters__card {
   background-color: #e6ead4;
   padding: 5px;
@@ -23,6 +27,8 @@
 .characters__title {
   color: #49562A;
   font-weight: 400;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 .character__status--alive {

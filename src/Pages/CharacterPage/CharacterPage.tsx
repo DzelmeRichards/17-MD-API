@@ -42,48 +42,51 @@ const CharacterPage = () => {
 
   return (
     <div className="character__container">
-      <div className="character__loader-container">
-        {loading && <Loader />}
-      </div>
-      {character && (
-      <div className="character__card">
-        <img className="character__img" src={character.image} alt="not found" />
-        <span>
-          Name:
-          {' '}
-          {character.name}
-        </span>
-        <span>
-          Species:
-          {' '}
-          {character.species}
-        </span>
-        <span>
-          Gender:
-          {' '}
-          {character.gender}
-        </span>
-        <div className="character__prev-next-btn-container">
-          {currentPage > 1 && (
-          <Button
-            text="<"
-            onClick={() => {
-              setCurrentPage(currentPage - 1);
-            }}
-          />
+      <div className="row center-xs">
+        <div className="col-xs-3">
+          {character && (
+          <div className="character__card">
+            <img className="character__img" src={character.image} alt="not found" />
+            <span>
+              Name:
+              {' '}
+              {character.name}
+            </span>
+            <span>
+              Species:
+              {' '}
+              {character.species}
+            </span>
+            <span>
+              Gender:
+              {' '}
+              {character.gender}
+            </span>
+            <div className="character__prev-next-btn-container">
+              {currentPage > 1 && (
+              <Button
+                text="<"
+                onClick={() => {
+                  setCurrentPage(currentPage - 1);
+                }}
+              />
+              )}
+              {pageInfo && currentPage < pageInfo?.count && (
+              <Button
+                text=">"
+                onClick={() => {
+                  setCurrentPage(currentPage + 1);
+                }}
+              />
+              )}
+            </div>
+          </div>
           )}
-          {pageInfo && currentPage < pageInfo?.count && (
-          <Button
-            text=">"
-            onClick={() => {
-              setCurrentPage(currentPage + 1);
-            }}
-          />
-          )}
+          <div className="character__loader-container">
+            {loading && <Loader />}
+          </div>
         </div>
       </div>
-      )}
-
     </div>
   );
 };

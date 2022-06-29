@@ -1,9 +1,16 @@
 .loaction__container {
   margin-top: 60px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  
+}
+
+.location__card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #e6ead4;
+    border-radius: 3px;
+    padding: 20px;
+    border-bottom: 1px solid #49562A;
+    text-align: left;
 }
 
 .location__prev-next-btn-container {

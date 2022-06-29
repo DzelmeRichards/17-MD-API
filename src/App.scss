@@ -1,2 +1,6 @@
 @import './libraries/reset.scss';
 @import './libraries/flexboxgrid.scss';
+
+html {
+  overflow-y: scroll;
+}

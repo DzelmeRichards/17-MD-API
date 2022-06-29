@@ -1,8 +1,13 @@
-.episode__container {
+.episode__card {
   display: flex;
   flex-direction: column;
   align-items: center;
   margin-top: 60px;
+  background-color: #e6ead4;
+  border-radius: 3px;
+  padding: 20px;
+  border-bottom: 1px solid #49562A;
+  text-align: left;
 }
 
 .episode__prev-next-btn-container {
@@ -11,5 +16,4 @@
   flex-direction: row;
   justify-content: space-between;
   gap: 20px;
-
 }

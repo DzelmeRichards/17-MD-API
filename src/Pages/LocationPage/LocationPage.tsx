@@ -42,50 +42,56 @@ const LocationPage = () => {
 
   return (
     <div className="loaction__container">
-      {loading && (<Loader />)}
-      {location && (
-        <div>
-          <p>
-            ID:
-            {' '}
-            {id}
-          </p>
-          <p>
-            Name:
-            {' '}
-            {location.name}
-          </p>
-          <p>
-            Type:
-            {' '}
-            {location.type}
-          </p>
-          <p>
-            Dimension:
-            {' '}
-            {location.dimension}
-          </p>
-          <div className="location__prev-next-btn-container">
-            {currentPage > 1 && (
-            <Button
-              text="<"
-              onClick={() => {
-                setCurrentPage(currentPage - 1);
-              }}
-            />
-            )}
-            {pageInfo && currentPage < pageInfo?.count && (
-            <Button
-              text=">"
-              onClick={() => {
-                setCurrentPage(currentPage + 1);
-              }}
-            />
-            )}
+      <div className="row center-xs">
+        <div className="col-xs-2">
+          <div className="location__card">
+            {location && (
+            <div>
+              <p>
+                ID:
+                {' '}
+                {id}
+              </p>
+              <p>
+                Name:
+                {' '}
+                {location.name}
+              </p>
+              <p>
+                Type:
+                {' '}
+                {location.type}
+              </p>
+              <p>
+                Dimension:
+                {' '}
+                {location.dimension}
+              </p>
+              <div className="location__prev-next-btn-container">
+                {currentPage > 1 && (
+                <Button
+                  text="<"
+                  onClick={() => {
+                    setCurrentPage(currentPage - 1);
+                  }}
+                />
+                )}
+                {pageInfo && currentPage < pageInfo?.count && (
+                <Button
+                  text=">"
+                  onClick={() => {
+                    setCurrentPage(currentPage + 1);
+                  }}
+                />
+                )}
 
+              </div>
+            </div>
+            )}
+            {loading && (<Loader />)}
           </div>
         </div>
-      )}
+      </div>
     </div>
   );
 };
